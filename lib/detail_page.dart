@@ -12,7 +12,6 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final String viewType = 'map-view-${destinasi.nama.replaceAll(' ', '')}';
 
-    // Registrasi iframe untuk peta Google Maps
     ui.platformViewRegistry.registerViewFactory(
       viewType,
       (int viewId) {
