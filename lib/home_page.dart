@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // 1. Import package provider
 import 'detail_page.dart';
-import 'destinasi_data.dart';
+import 'destinasi_provider.dart'; // 2. Import file provider
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // 3. Ambil data dari provider menggunakan context.watch
+    final destinasiProvider = context.watch<DestinasiProvider>();
+    final daftarDestinasi = destinasiProvider.daftarDestinasi;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -26,6 +31,7 @@ class HomePage extends StatelessWidget {
             mainAxisSpacing: 12.0,
             childAspectRatio: 0.8,
           ),
+          // 4. Gunakan data dari provider
           itemCount: daftarDestinasi.length,
           itemBuilder: (context, index) {
             final destinasi = daftarDestinasi[index];

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // 1. Import package provider
 import 'splash_screen.dart';
+import 'destinasi_provider.dart'; // 2. Import file provider yang baru dibuat
 
 void main() {
-  runApp(const MyApp());
+  // 3. Bungkus aplikasi dengan ChangeNotifierProvider
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => DestinasiProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
